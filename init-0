@@ -1,1 +1,59 @@
+#!/bin/bash
+# first used for minimise clean mini distro
+# To do in fresh new distro:
+# wget --no-check-certificate https://busy4.me/init/init-0
+# chmod 755 ./init-0
+# ./init-0
 
+rm /etc/apt/apt.conf
+echo "create /etc/apt/apt.conf"
+echo 'APT::Install-Recommends "false" ; APT::Install-Suggests "false" ;' >> /etc/apt/apt.conf
+sleep 1
+rm /etc/apt/sources.list
+echo 'deb http://ftp.debian.org/debian jessie main' >> /etc/apt/sources.list
+sleep 1
+echo "apt-get update && apt-get clean && apt-get install -f openssh-server" 
+sleep 1
+apt-get update && apt-get clean
+apt-get -qq install -f openssh-server
+
+echo "configure grub........................................................" 
+sleep 1
+sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
+update-grub
+sleep 1
+
+echo "remove unneeded packages.............................................."
+echo "apt-get -qq purge acpi acpid eject"
+sleep 1
+apt-get -qq purge acpi acpid eject ispell
+echo "apt-get -qq purge gcc-4.8-base:amd64 ................................."
+sleep 1
+apt-get -qq purge gcc-4.8-base:amd64
+#echo "apt-get -qq purge gcc-4.9-base:amd64"
+#apt-get -qq purge gcc-4.9-base:amd64
+echo "apt-get -qq purge gettext-base laptop-detect manpages nano tasksel traceroute usbutils"
+sleep 1
+apt-get -qq purge gettext-base laptop-detect manpages nano tasksel traceroute usbutils
+echo "apt-get -qq purge vim-common vim-tiny.................................."
+sleep 1
+apt-get -qq purge vim-common vim-tiny
+echo "apt-get --purge autoremove && apt-get clean............................"
+sleep 1
+apt-get -qq --purge autoremove && apt-get clean
+echo "rm -rf /usr/share/man/?? && rm -rf /usr/share/man/??_*"
+sleep 1
+rm -rf /usr/share/man/?? && rm -rf /usr/share/man/??_*
+
+#allow root ssh login
+OLD="PermitRootLogin without-password"
+NEW="PermitRootLogin yes"
+sed -i 's/$OLD/$NEW/g' /etc/ssh/sshd_config
+
+cd /root
+cat > ~/.xinitrc << EOF
+xsetroot -solid black &
+EOF
+
+echo "service sshd reload && service sshd status"
+service sshd reload && service sshd status
