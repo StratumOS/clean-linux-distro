@@ -8,7 +8,7 @@ Usage:
 3. Install just base and 'Standard Utilities'
 
 wget http://busy4.me/init/init-0
-chmod 755 init-0
-./init-0
 
-d
+chmod 755 init-0
+
+./init-0
