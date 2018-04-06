@@ -8,6 +8,7 @@
 # Purpose: keep the size on the disk as small as possible
 #
 
+
 rm /etc/apt/apt.conf
 echo "create /etc/apt/apt.conf"
 echo 'APT::Install-Recommends "false" ; APT::Install-Suggests "false" ;' >> /etc/apt/apt.conf
