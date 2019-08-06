@@ -8,7 +8,7 @@ Usage:
 3. Install just base and 'Standard Utilities'
 4. Run below line:
 
-wget busy4.me/init/init-0 && chmod 755 init-0 && ./init-0
+wget busy4.me/init-0 && chmod +x init-0 && ./init-0
 
-If do this again:
-rm init-0 && wget busy4.me/init/init-0 && chmod 755 init-0 && ./init-0
+If do this again with updated version:
+rm init-0 && wget busy4.me/init-0 && sh ./init-0
