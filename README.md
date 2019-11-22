@@ -38,5 +38,5 @@ rm init-0 && wget stratumos.com/init-0 && sh ./init-0
 | Distro | Before | After | Note | |
 |---|---|:---:|:---:|:---:|
 | Debian 8 | 432MB | 240MB  | - | ☑️
-| Debian 9 | 432MB | 240MB  | - | ☑️
-| Debian 10 | 432MB | 240MB  | - | ☑️
+| Debian 9 | -MB | -MB  | - | -
+| Debian 10 | -MB | -MB  | - | -
