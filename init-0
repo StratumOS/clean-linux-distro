@@ -2,12 +2,11 @@
 # GNU License
 # first used for minimise clean mini distro
 # To do in fresh new distro:
-# wget --no-check-certificate https://busy4.me/init/init-0
-# chmod 755 ./init-0
+# wget --no-check-certificate stratumos.com/init-0
+# chmod +x ./init-0
 # ./init-0
 # Purpose: keep the size on the disk as small as possible
 #
-
 
 rm /etc/apt/apt.conf
 echo "create /etc/apt/apt.conf"
