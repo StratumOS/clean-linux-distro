@@ -32,7 +32,7 @@ or clone from this Repository
 
 If do this again with updated version:
 ```
-rm init-0 && wget stratumos.com/init-0 && sh ./init-0
+rm ./init-0 && wget stratumos.com/init-0 && sh ./init-0
 ```
 
 | Distro | Before | After | Note | |
